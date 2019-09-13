@@ -552,7 +552,7 @@
 
 <h2 id="metrics">Metrics</h2>
 
-<p>This service provides some <a href="https://prometheus.io/">Prometheus</a> metrics throu the debug endpoint, you can optionally secure the metrics endpoint by some random token, which got to be configured throu one of the options mentioned above. Be default the metrics endpoint is bound to <code>http://0.0.0.0:8390/metrics</code>.</p>
+<p>This service provides some <a href="https://prometheus.io/">Prometheus</a> metrics through the debug endpoint, you can optionally secure the metrics endpoint by some random token, which got to be configured through one of the flag <code>--debug-token</code> or the environment variable <code>HELLO_DEBUG_TOKEN</code> mentioned above. By default the metrics endpoint is bound to <code>http://0.0.0.0:8390/metrics</code>.</p>
 
 <dl>
 <dt>go_gc_duration_seconds<br /></dt>
@@ -672,7 +672,7 @@
 <div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">git clone https://github.com/owncloud/ocis-hello.git
 cd ocis-hello</code></pre></div>
 
-<p>All required tool besides Go itself and make are bundled or getting automatically installed within the <code>GOPATH</code>. All commands to build this project are part of our <code>Makefile</code> and respectively out <code>package.json</code>.</p>
+<p>All required tool besides Go itself and make are bundled or getting automatically installed within the <code>GOPATH</code>. All commands to build this project are part of our <code>Makefile</code> and respectively our <code>package.json</code>.</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt"># install dependecies
 yarn install
