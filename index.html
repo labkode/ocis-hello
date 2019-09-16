@@ -418,7 +418,7 @@
 
 				<h2 id="installation">Installation</h2>
 
-<p>So far we are offering two different variants for the installation. You can choose between <a href="https://www.docker.com/">Docker</a> or pre-built binaries which are stored on our download mirrors and GitHub releases. Maybe we will also provide system packages for the major distributions later if we see the need for it.</p>
+<p>So far we are offering two different variants for the installation. You can choose between <a href="docker">Docker</a> or pre-built binaries which are stored on our download mirrors and GitHub releases. Maybe we will also provide system packages for the major distributions later if we see the need for it.</p>
 
 <h3 id="docker">Docker</h3>
 
@@ -532,7 +532,7 @@
 
 <h3 id="configuration-file">Configuration file</h3>
 
-<p>So far we support the file formats <code>JSON</code> and <code>YAML</code>, if you want to get a full example configuration just take a look at <a href="https://github.com/owncloud/ocis-hello/tree/master/config">our repository</a>, there you can always see the latest configuration format. These example configurations include all available options and the default values. The configuration file will be automatically loaded if it&rsquo;s placed at <code>/etc/ocis/hello.yml</code>, <code>${HOME}/.ocis/hello.yml</code> or <code>$(pwd)/config/hello.yml</code>.</p>
+<p>So far we support the file formats <code>JSON</code> and <code>YAML</code>, if you want to get a full example configuration just take a look at <a href="repo">our repository</a>, there you can always see the latest configuration format. These example configurations include all available options and the default values. The configuration file will be automatically loaded if it&rsquo;s placed at <code>/etc/ocis/hello.yml</code>, <code>${HOME}/.ocis/hello.yml</code> or <code>$(pwd)/config/hello.yml</code>.</p>
 
 <h2 id="usage">Usage</h2>
 
@@ -552,7 +552,7 @@
 
 <h2 id="metrics">Metrics</h2>
 
-<p>This service provides some <a href="https://prometheus.io/">Prometheus</a> metrics through the debug endpoint, you can optionally secure the metrics endpoint by some random token, which got to be configured through one of the flag <code>--debug-token</code> or the environment variable <code>HELLO_DEBUG_TOKEN</code> mentioned above. By default the metrics endpoint is bound to <code>http://0.0.0.0:8390/metrics</code>.</p>
+<p>This service provides some <a href="prom">Prometheus</a> metrics through the debug endpoint, you can optionally secure the metrics endpoint by some random token, which got to be configured through one of the flag <code>--debug-token</code> or the environment variable <code>HELLO_DEBUG_TOKEN</code> mentioned above. By default the metrics endpoint is bound to <code>http://0.0.0.0:8390/metrics</code>.</p>
 
 <dl>
 <dt>go_gc_duration_seconds<br /></dt>
@@ -649,7 +649,11 @@
 <dd>Current number of scrapes being served<br />
 <br /></dd>
 <dt>promhttp_metric_handler_requests_total<br /></dt>
-<dd>Total number of scrapes by HTTP status code<br /></dd>
+<dd>Total number of scrapes by HTTP status code<br />
+<br />
+<br />
+<br />
+<br /></dd>
 </dl>
 
 			</section>
@@ -667,26 +671,26 @@
 					</small>
 				</h1>
 
-				<p>As this project is built with Go and NodeJS, so you need to install that first. The installation of Go and NodeJS is out of the scope of this document, please follow the official documentation for <a href="https://golang.org/doc/install">Go</a>, <a href="https://nodejs.org/en/download/package-manager/">NodeJS</a> and <a href="https://yarnpkg.com/lang/en/docs/install/">Yarn</a>. After the installation of the required tools you need to get the sources:</p>
+				<p>As this project is built with Go and NodeJS, so you need to install that first. The installation of Go and NodeJS is out of the scope of this document, please follow the official documentation for <a href="golang">Go</a>, <a href="nodejs">NodeJS</a> and <a href="yarn">Yarn</a>. After the installation of the required tools you need to get the sources:</p>
 
 <div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">git clone https://github.com/owncloud/ocis-hello.git
 cd ocis-hello</code></pre></div>
 
 <p>All required tool besides Go itself and make are bundled or getting automatically installed within the <code>GOPATH</code>. All commands to build this project are part of our <code>Makefile</code> and respectively our <code>package.json</code>.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt"># install dependecies
-yarn install
+<h2 id="frontend">Frontend</h2>
 
-# build frontend
-yarn build
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">yarn install
+yarn build</code></pre></div>
 
-# generate assets
-make generate
+<p>The above commands will install the required build dependencies and build the whole frontend bundle. This bundle will we embeded into the binary later on.</p>
 
-# build binary
+<h2 id="backend">Backend</h2>
+
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">make generate
 make build</code></pre></div>
 
-<p>Finally you should have the binary within the <code>bin/</code> folder now, give it a try with <code>./bin/ocis-hello -h</code> to see all available options.</p>
+<p>The above commands will embed the frontend bundle into the binary. Finally you should have the binary within the <code>bin/</code> folder now, give it a try with <code>./bin/ocis-hello -h</code> to see all available options.</p>
 
 			</section>
 		
@@ -703,7 +707,7 @@ make build</code></pre></div>
 					</small>
 				</h1>
 
-				This project is licensed under the <a href="https://github.com/owncloud/ocis-hello/blob/master/LICENSE">Apache 2.0</a> license. For the license of the used libraries you have to check the respective sources.
+				This project is licensed under the <a href="license">Apache 2.0</a> license. For the license of the used libraries you have to check the respective sources.
 			</section>
 		
 	</body>
