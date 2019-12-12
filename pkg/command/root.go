@@ -17,9 +17,9 @@ func Execute() error {
 	cfg := config.New()
 
 	app := &cli.App{
-		Name:     "ocis-hello",
+		Name:     "ocis-reva",
 		Version:  version.String,
-		Usage:    "Example service for Reva/oCIS",
+		Usage:    "Run Reva as OCIS extension",
 		Compiled: version.Compiled(),
 
 		Authors: []cli.Author{
@@ -75,7 +75,6 @@ func Execute() error {
 
 		Commands: []cli.Command{
 			Server(cfg),
-			Health(cfg),
 		},
 	}
 
